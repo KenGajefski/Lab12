@@ -25,10 +25,50 @@ public:
 	double getPerimeter() const;
 	double getArea() const;
 	void setDims(int, int, int);
+private:
+	int lengthOne;
+	int lengthTwo;
+	int lengthThree;
 };
 
 // Triangle derived class implementation
+Triangle::Triangle() {
+	lengthOne = 0;
+	lengthTwo = 0;
+	lengthThree = 0;
+}
 
+string Triangle::getType() const {
+	return "Triangle";
+}
+
+double Triangle::getPerimeter() const {
+	return (lengthOne + lengthTwo + lengthThree);
+}
+
+double Triangle::getArea() const {
+	double semi = ((lengthOne + lengthTwo + lengthThree) / 2);
+	return ( sqrt( (semi * (semi - lengthOne)) * 
+		(semi * (semi - lengthTwo)) * 
+		(semi * (semi - lengthThree)) ));
+}
+
+void Triangle::setDims(int l1, int l2, int l3) {
+	if (l1 > 0)
+		lengthOne = l1;
+	else
+		lengthOne = 0;
+	
+	if (l2 > 0)
+		lengthTwo = l2;
+	else
+		lengthTwo = 0;
+
+	if (l3 > 0)
+		lengthThree = l3;
+	else
+		lengthThree = 0;
+}
 
 
 
