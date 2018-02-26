@@ -33,9 +33,9 @@ private:
 
 // Triangle derived class implementation
 Triangle::Triangle() {
-	lengthOne = 0;
-	lengthTwo = 0;
-	lengthThree = 0;
+	lengthOne = 1;
+	lengthTwo = 1;
+	lengthThree = 1;
 }
 
 string Triangle::getType() const {
@@ -57,20 +57,18 @@ void Triangle::setDims(int l1, int l2, int l3) {
 	if (l1 > 0)
 		lengthOne = l1;
 	else
-		lengthOne = 0;
+		lengthOne = 1;
 	
 	if (l2 > 0)
 		lengthTwo = l2;
 	else
-		lengthTwo = 0;
+		lengthTwo = 1;
 
 	if (l3 > 0)
 		lengthThree = l3;
 	else
-		lengthThree = 0;
+		lengthThree = 1;
 }
-
-
 
 // QUESTION 1 CONTINUED
 // Copy the Circle class header and implementation you wrote for question 1 here.
@@ -86,11 +84,28 @@ private:
 };
 
 // Circle derived class implementation
+Circle::Circle() {
+	radius = 0;
+}
 
+string Circle::getType() const {
+	return "Circle";
+}
 
+double Circle::getPerimeter() const {
+	return (2 * 3.14 * radius);
+}
 
+double Circle::getArea() const {
+	return ( 3.14 * pow(radius, 2) );
+}
 
-
+void Circle::setDims(int r) {
+	if (r > 0)
+		radius = r;
+	else
+		radius = 1;
+}
 
 // Determines the larger area between the two Shape objects
 // The larger area is stored in result.
