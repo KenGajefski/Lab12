@@ -114,14 +114,22 @@ void largerArea(Shape &a, Shape &b, double *theResult)
 {
 	// This pointer of the base class type will allow for the calling of the derived class functions through polymorphism
 	Shape *ptrA = &a;
+	Shape *ptrB = &b;
 
-	// Same for B
-	*theResult = ptrA->getArea();
+	// Two new area variables are created to store the values of the getArea function from each derived shape class for comparison
+	double *area1 = new double;
+	*area1 = ptrA->getArea();
+
+	double *area2 = new double;
+	*area2 = ptrB->getArea();
 
 	// QUESTION 2
 	// Write your implementation of this largerArea function here.
 
-
+	if (*area1 > *area2)
+		*theResult = ptrA->getArea();
+	else
+		*theResult = ptrB->getArea();
 
 }
 
@@ -161,5 +169,6 @@ int main()
 	largerArea(t, c, &result);
 	cout << "The larger area is: " << result << endl;
 
+	system("pause");
 	return 0;
 }
